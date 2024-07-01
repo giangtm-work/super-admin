@@ -1,0 +1,26 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2022",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@super-admin/destroy": ["libs/services/destroy/src/index.ts"],
+      "@super-admin/orders": ["modules/orders/src/index.ts"],
+      "@super-admin/products": ["modules/products/src/index.ts"],
+      "@super-admin/users": ["modules/users/src/index.ts"],
+      "@super-admin/users-http": ["libs/http-services/users-http/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

@@ -1,0 +1,79 @@
+<tui-app-bar class="mb-4">
+  <button
+    tuiSlot="left"
+    appearance="secondary"
+    tuiButton
+    type="button"
+    size="s"
+    (click)="router.navigate(['users'])"
+  >
+    Back to list
+  </button>
+  <h3>User Detail</h3>
+  <button
+      tuiSlot="right"
+      appearance="primary"
+      tuiButton
+      type="button"
+      size="s"
+      (click)="router.navigate(['users', userId, 'update'])"
+  >
+    Update
+  </button>
+</tui-app-bar>
+
+<div class="w-full md:w-4/12 mx-auto">
+  <tui-island
+    class="tui-island shadow-md"
+    size="l"
+  >
+    <div class="tui-island__content">
+      <div>
+        <tui-avatar
+          [autoColor]="true"
+          [rounded]="true"
+          size="xl"
+          [text]="user?.name || ''"
+          class="mb-4 tui-skeleton_rounded"
+          [class.tui-skeleton]="isLoading"
+        ></tui-avatar>
+        <div class="flex">
+          <h3
+            class="tui-island__title"
+            [class.tui-skeleton_short]="isLoading"
+            [class.tui-skeleton_text]="isLoading"
+            [class.tui-skeleton]="isLoading"
+          >
+            {{ user?.name }}
+          </h3>
+          <tui-badge
+            *ngIf="user?.status === 'active'"
+            status="success"
+            value="true"
+            class="ml-2"
+          ></tui-badge>
+          <tui-badge
+            *ngIf="user?.status === 'inactive'"
+            status="neutral"
+            value="false"
+            class="ml-2"
+          ></tui-badge>
+        </div>
+        <p
+          class="tui-island__paragraph"
+          [class.tui-skeleton_text]="isLoading"
+          [class.tui-skeleton]="isLoading"
+        >
+          {{ user?.email }}
+        </p>
+        <p
+          class="tui-island__paragraph"
+          [class.tui-skeleton_text]="isLoading"
+          [class.tui-skeleton]="isLoading"
+        >
+          {{ user?.phoneNumber }}
+        </p>
+      </div>
+    </div>
+  </tui-island>
+</div>

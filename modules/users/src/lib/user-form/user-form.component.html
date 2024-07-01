@@ -1,0 +1,94 @@
+<tui-app-bar class="mb-4">
+  <h3>{{ title }}</h3>
+</tui-app-bar>
+<tui-loader [overlay]="isLoading" [showLoader]="isLoading">
+  <form [formGroup]="userForm">
+    <div class="tui-row tui-row_adaptive">
+      <div class="tui-col_xs-12 tui-space_auto tui-col_md-6 tui-col_lg-6">
+        <div class="user-form__row">
+          <label
+              tuiLabel="Email"
+              class="mb-4"
+          >
+            <tui-input
+                formControlName="email"
+                tuiTextfieldSize="m"
+                aria-autocomplete="none"
+                [tuiTextfieldLabelOutside]="true"
+            >
+              Type your email
+            </tui-input>
+
+            <tui-error
+                formControlName="email"
+                [error]="[] | tuiFieldError | async"
+            ></tui-error>
+          </label>
+        </div>
+
+        <div class="user-form__row">
+          <label
+              tuiLabel="Name"
+              class="mb-4"
+          >
+            <tui-input
+                formControlName="name"
+                tuiTextfieldSize="m"
+                aria-autocomplete="none"
+                [tuiTextfieldLabelOutside]="true"
+            >
+              Type your name
+            </tui-input>
+
+            <tui-error
+                formControlName="name"
+                [error]="[] | tuiFieldError | async"
+            ></tui-error>
+          </label>
+        </div>
+
+        <div class="user-form__row">
+          <label
+              tuiLabel="Phone number"
+              class="mb-4"
+          >
+            <tui-input
+                formControlName="phoneNumber"
+                tuiTextfieldSize="m"
+                aria-autocomplete="none"
+                [tuiTextfieldLabelOutside]="true"
+            >
+              Type your phone number
+            </tui-input>
+
+            <tui-error
+                formControlName="phoneNumber"
+                [error]="[] | tuiFieldError | async"
+            ></tui-error>
+          </label>
+        </div>
+
+        <div class="user-form__buttons">
+          <button
+              appearance="flat"
+              size="s"
+              tuiButton
+              type="button"
+              class="user-form__button"
+              (click)="userId ? router.navigate(['users', userId]) : router.navigate(['users'])"
+          >
+            Cancel
+          </button>
+          <button
+              size="s"
+              tuiButton
+              type="submit"
+              class="user-form__button ml-4"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</tui-loader>

@@ -1,0 +1,129 @@
+<tui-app-bar class="mb-4">
+  <h3>User List</h3>
+  <button
+      tuiSlot="right"
+      appearance="primary"
+      tuiButton
+      type="button"
+      size="s"
+      (click)="router.navigate(['users', 'create'])"
+  >
+    Create new user
+  </button>
+</tui-app-bar>
+
+<table
+    tuiTable
+    [columns]="columns"
+>
+  <thead>
+  <tr tuiThGroup>
+    <th
+        *tuiHead="'name'"
+        tuiTh
+    >
+      Name
+    </th>
+    <th
+        *tuiHead="'email'"
+        tuiTh
+    >
+      E-mail
+    </th>
+    <th
+        *tuiHead="'phoneNumber'"
+        tuiTh
+    >
+      Phone Number
+    </th>
+    <th
+        *tuiHead="'status'"
+        tuiTh
+    >
+      Status
+    </th>
+    <th
+        *tuiHead="'actions'"
+        tuiTh
+        [sorter]="null"
+    ></th>
+  </tr>
+  </thead>
+  <tbody
+      *tuiLet="users | tuiTableSort as sortedUsers"
+      tuiTbody
+      [data]="sortedUsers"
+  >
+  <tr
+      *ngFor="let item of sortedUsers; let index = index"
+      tuiTr
+  >
+    <td
+        *tuiCell="'name'"
+        tuiTd
+    >
+      {{ index + 1 }}. {{ item.name }}
+    </td>
+    <td
+        *tuiCell="'email'"
+        tuiTd
+    >
+      <a
+          *ngIf="item.email"
+          tuiLink
+          [href]="'mailto:' + item.email"
+      >
+        {{ item.email }}
+      </a>
+    </td>
+    <td
+        *tuiCell="'phoneNumber'"
+        tuiTd
+    >
+      <div>{{ item.phoneNumber }}</div>
+    </td>
+    <td
+        *tuiCell="'status'"
+        tuiTd
+    >
+      <tui-badge
+          *ngIf="item.status === 'active'"
+          status="success"
+          value="true"
+          class="mr-2 mb-2"
+      ></tui-badge>
+      <tui-badge
+          *ngIf="item.status === 'inactive'"
+          status="neutral"
+          value="false"
+          class="mr-2 mb-2"
+      ></tui-badge>
+    </td>
+    <td
+        *tuiCell="'actions'"
+        tuiTd
+    >
+      <button
+          appearance="flat"
+          icon="tuiIconInfo"
+          shape="rounded"
+          size="s"
+          title="Detail"
+          tuiIconButton
+          type="button"
+          (click)="viewDetail(item)"
+      ></button>
+      <button
+          appearance="flat"
+          icon="tuiIconTrash"
+          shape="rounded"
+          size="s"
+          title="Remove"
+          tuiIconButton
+          type="button"
+          (click)="delete(item)"
+      ></button>
+    </td>
+  </tr>
+  </tbody>
+</table>

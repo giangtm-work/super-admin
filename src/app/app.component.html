@@ -1,0 +1,152 @@
+<tui-root>
+  <header tuiNavigationHeader>
+    <!-- Start Left header -->
+    <button
+      appearance="secondary"
+      iconLeft="tuiIconGrid"
+      tuiIconButton
+    >
+      Menu
+    </button>
+    <span tuiNavigationLogo>
+        <span tuiFade>VN Aquatic</span>
+        <tui-badge>Ultimate</tui-badge>
+    </span>
+    <!-- End Left header -->
+    <hr />
+    <!-- Start Right header -->
+    <button
+      iconLeft="tuiIconBell"
+      tuiIconButton
+    >
+      Notifications
+      <tui-badge-notification></tui-badge-notification>
+    </button>
+    <button
+      iconLeft="tuiIconMoreHorizontal"
+      tuiIconButton
+    >
+      More
+    </button>
+    <tui-avatar src="VN"></tui-avatar>
+    <!-- End Right header -->
+  </header>
+  <div [style.display]="'flex'">
+    <aside
+      style="height: calc(100vh - 3rem);"
+      [tuiNavigationAside]="expanded"
+    >
+      <header>
+        <button
+          iconLeft="tuiIconHome"
+          tuiButton
+          routerLink="/"
+        >
+          <span tuiFade>Home</span>
+        </button>
+      </header>
+      <a
+        iconLeft="tuiIconUsers"
+        routerLink="/users"
+        routerLinkActive="active"
+        tuiAppearance="flat"
+        tuiButton
+      >
+        Users
+      </a>
+      <tui-hosted-dropdown
+        [canOpen]="!expanded"
+        [content]="products"
+        [sided]="true"
+        [(open)]="openProducts"
+      >
+        <button
+          iconLeft="tuiIconBox"
+          iconRight="tuiIconChevronDown"
+          tuiAppearance="flat"
+          tuiButton
+          [tuiAppearanceState]="openProducts ? 'hover' : null"
+          (click)="submenuProducts = expanded && !submenuProducts"
+        >
+          Products
+        </button>
+        <ng-template #products>
+          <tui-data-list size="s">
+            <button tuiOption>Account</button>
+            <button tuiOption>Notifications</button>
+            <button tuiOption>Privacy</button>
+          </tui-data-list>
+        </ng-template>
+      </tui-hosted-dropdown>
+      <tui-expand [expanded]="expanded && submenuProducts">
+        <button tuiButton>Tanks</button>
+        <button tuiButton>Layouts</button>
+        <button tuiButton>Light</button>
+        <button tuiButton>Filter</button>
+      </tui-expand>
+
+      <tui-hosted-dropdown
+        [canOpen]="!expanded"
+        [content]="dropdown"
+        [sided]="true"
+        [(open)]="openSettings"
+      >
+        <button
+          iconLeft="tuiIconSettings"
+          iconRight="tuiIconChevronDown"
+          tuiAppearance="flat"
+          tuiButton
+          [tuiAppearanceState]="openSettings ? 'hover' : null"
+          (click)="submenuSettings = expanded && !submenuSettings"
+        >
+          Settings
+        </button>
+        <ng-template #dropdown>
+          <tui-data-list size="s">
+            <button tuiOption>Account</button>
+            <button tuiOption>Notifications</button>
+            <button tuiOption>Privacy</button>
+          </tui-data-list>
+        </ng-template>
+      </tui-hosted-dropdown>
+      <tui-expand [expanded]="expanded && submenuSettings">
+        <button tuiButton>Account</button>
+        <button tuiButton>Notifications</button>
+        <button tuiButton>Privacy</button>
+      </tui-expand>
+
+      <footer>
+        <button
+          tuiButton
+          [iconLeft]="expanded ? 'tuiIconChevronLeft' : 'tuiIconChevronRight'"
+          (click)="expanded = !expanded"
+        >
+          {{ expanded ? 'Collapse' : 'Expand' }}
+        </button>
+      </footer>
+    </aside>
+
+    <main tuiNavigationMain>
+      <!--      <nav-->
+      <!--          tuiNavigationNav-->
+      <!--          [style.position]="'sticky'"-->
+      <!--      >-->
+      <!--        <a routerLink=".">-->
+      <!--          <tui-icon icon="tuiIconChevronLeft"></tui-icon>-->
+      <!--          Back-->
+      <!--        </a>-->
+      <!--        <hr />-->
+      <!--        <button-->
+      <!--            appearance="secondary"-->
+      <!--            tuiButton-->
+      <!--        >-->
+      <!--          Secondary-->
+      <!--        </button>-->
+      <!--        <button tuiButton>Primary</button>-->
+      <!--      </nav>-->
+      <div style="padding-top: 1.25rem;">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+  </div>
+</tui-root>
