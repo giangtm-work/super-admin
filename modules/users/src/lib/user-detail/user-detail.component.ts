@@ -3,8 +3,7 @@ import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DestroyService } from '@super-admin/destroy';
-import { User, UsersHttpService } from '@super-admin/users-http';
+import { Status, User, UsersHttpService } from '@super-admin/http-services/users-http';
 import { TuiButtonModule } from '@taiga-ui/core';
 import { TuiAppBarModule } from '@taiga-ui/experimental';
 import { TuiAvatarModule, TuiBadgeModule, TuiIslandModule, TuiToggleModule } from '@taiga-ui/kit';
@@ -24,13 +23,14 @@ import { TuiAvatarModule, TuiBadgeModule, TuiIslandModule, TuiToggleModule } fro
   ],
   templateUrl: './user-detail.component.html',
   styleUrl: './user-detail.component.scss',
-  providers: [DestroyService]
+  providers: []
 })
 export class UserDetailComponent implements OnInit {
   public router = inject(Router);
   public route = inject(ActivatedRoute);
   private usersHttpService = inject(UsersHttpService);
   private destroyRef = inject(DestroyRef);
+  readonly Status = Status;
 
   userId = '';
   user?: User;

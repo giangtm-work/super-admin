@@ -1,0 +1,127 @@
+//.auth {
+//  height: 100vh;
+//  min-height: 37.5rem;
+//  min-width: 50rem;
+//  background-image: url('public/images/auth/auth-bg.svg');
+//  background-repeat: no-repeat;
+//  background-size: cover;
+//  background-position: center;
+//  display: flex;
+//  justify-content: center;
+//  align-items: center;
+//
+//  &__frame {
+//    background-image: url('public/images/auth/register-frame.svg');
+//    background-repeat: no-repeat;
+//    background-size: contain;
+//    width: 46.0625rem;
+//    height: 29.125rem;
+//    display: flex;
+//  }
+//
+//  &__form {
+//    width: 26.8125rem;
+//    display: flex;
+//    flex-direction: column;
+//    justify-content: center;
+//    align-items: center;
+//    padding: 3.375rem 0;
+//  }
+//
+//  &__title {
+//    font-weight: bold;
+//
+//    &--form {
+//      font-size: 2rem;
+//      color: var(--green);
+//    }
+//
+//    &--welcome {
+//      font-size: 1.4rem;
+//      color: var(--white);
+//    }
+//  }
+//
+//  &__sub-title {
+//    font-size: 1rem;
+//
+//    &--form {
+//      color: var(--dark);
+//      margin-top: 2rem;
+//    }
+//
+//    &--welcome {
+//      color: var(--white);
+//      margin-top: 1rem;
+//    }
+//  }
+//
+//  &__welcome {
+//    width: 19.25rem;
+//    display: flex;
+//    flex-direction: column;
+//    justify-content: center;
+//    align-items: center;
+//    padding: 1rem;
+//  }
+//
+//  &__button {
+//    background-color: var(--green);
+//    color: var(--white);
+//    font-weight: 600;
+//    text-transform: uppercase;
+//    border-radius: 20px;
+//    border: solid 1px var(--white);
+//    width: 9.875rem;
+//    height: 2.4375rem;
+//    margin-top: 1rem;
+//
+//    &--register {
+//      border: solid 1px var(--white);
+//      background-color: transparent;
+//      text-transform: uppercase;
+//    }
+//  }
+//}
+//
+//.social {
+//  display: flex;
+//  margin-top: 1.5rem;
+//
+//  &__icon {
+//    width: 1.75rem;
+//    height: 1.75rem;
+//    border-radius: 9999px;
+//    cursor: pointer;
+//    border: solid 1px var(--white);
+//
+//    &:hover {
+//      border: solid 1px var(--green);
+//    }
+//
+//    &:not(:first-child) {
+//      margin-left: 0.5rem;
+//    }
+//  }
+//}
+//
+//.form {
+//  margin-top: 2rem;
+//  display: flex;
+//  flex-direction: column;
+//  align-items: center;
+//
+//  &__input {
+//    padding: 0.5rem 2rem;
+//    width: 15.125rem;
+//    margin-bottom: 1rem;
+//    background-color: #F4F8F5;
+//    outline: none;
+//    border: solid 1px var(--white);
+//    border-radius: 1.25rem;
+//
+//    &:focus {
+//      border: solid 1px var(--green);
+//    }
+//  }
+//}

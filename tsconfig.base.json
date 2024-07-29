@@ -15,11 +15,22 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@super-admin/auth": ["modules/auth/src/index.ts"],
+      "@super-admin/auth-directive": ["libs/directives/auth-directive/src/index.ts"],
+      "@super-admin/auth-http": ["libs/http-services/auth-http/src/index.ts"],
+      "@super-admin/auth-interceptor": ["libs/interceptors/src/index.ts"],
+      "@super-admin/dashboard": ["modules/dashboard/src/index.ts"],
       "@super-admin/destroy": ["libs/services/destroy/src/index.ts"],
+      "@super-admin/guards/auth-guard": ["libs/guards/auth-guard/src/index.ts"],
+      "@super-admin/http-services/users-http": ["libs/http-services/users-http/src/index.ts"],
+      "@super-admin/models/http-model": ["libs/models/http-model/src/index.ts"],
       "@super-admin/orders": ["modules/orders/src/index.ts"],
       "@super-admin/products": ["modules/products/src/index.ts"],
-      "@super-admin/users": ["modules/users/src/index.ts"],
-      "@super-admin/users-http": ["libs/http-services/users-http/src/index.ts"]
+      "@super-admin/services/auth": ["libs/services/auth/src/index.ts"],
+      "@super-admin/services/destroy": ["libs/services/destroy/src/index.ts"],
+      "@super-admin/super-const": ["libs/constants/src/index.ts"],
+      "@super-admin/ui/tree-card": ["libs/ui/tree-card/src/index.ts"],
+      "@super-admin/users": ["modules/users/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

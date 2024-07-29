@@ -1,0 +1,17 @@
+<div class="tree-card">
+  <div class="card">
+    <div class="card-header" (click)="toggleExpand()">
+      {{ node.name }}
+      <button class="toggle-button">
+        {{ node.expanded ? '-' : '+' }}
+      </button>
+    </div>
+    <div class="card-body" *ngIf="node.expanded">
+      <ng-container *ngIf="node.children && node.children.length">
+        <div class="children">
+          <lib-ui-tree-card *ngFor="let child of node.children" [node]="child"></lib-ui-tree-card>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

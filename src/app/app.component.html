@@ -1,4 +1,4 @@
-<tui-root>
+<tui-root *ngIf="!!(authService.getAccessToken() | async) else authTpl">
   <header tuiNavigationHeader>
     <!-- Start Left header -->
     <button
@@ -9,7 +9,7 @@
       Menu
     </button>
     <span tuiNavigationLogo>
-        <span tuiFade>VN Aquatic</span>
+        <span tuiFade>{{ titleVi }}</span>
         <tui-badge>Ultimate</tui-badge>
     </span>
     <!-- End Left header -->
@@ -22,13 +22,27 @@
       Notifications
       <tui-badge-notification></tui-badge-notification>
     </button>
-    <button
-      iconLeft="tuiIconMoreHorizontal"
-      tuiIconButton
-    >
-      More
-    </button>
-    <tui-avatar src="VN"></tui-avatar>
+    <tui-hosted-dropdown [content]="actions">
+      <button
+        iconLeft="tuiIconMoreHorizontal"
+        tuiIconButton
+      >
+        More
+      </button>
+      <ng-template #actions>
+        <tui-data-list size="s">
+          <button tuiOption (click)="logout()">
+            <tui-icon
+              icon="tuiIconLogOutOutline"
+              [style.font-size.em]="1"
+              [style.margin-right.rem]="0.5"
+            ></tui-icon>
+            Đăng xuất
+          </button>
+        </tui-data-list>
+      </ng-template>
+    </tui-hosted-dropdown>
+    <tui-avatar [src]="'VN'"></tui-avatar>
     <!-- End Right header -->
   </header>
   <div [style.display]="'flex'">
@@ -42,17 +56,18 @@
           tuiButton
           routerLink="/"
         >
-          <span tuiFade>Home</span>
+          <span tuiFade>Trang chủ</span>
         </button>
       </header>
       <a
+        *libHasRole="[Role.SuperAdmin]"
         iconLeft="tuiIconUsers"
         routerLink="/users"
         routerLinkActive="active"
         tuiAppearance="flat"
         tuiButton
       >
-        Users
+        Tài khoản
       </a>
       <tui-hosted-dropdown
         [canOpen]="!expanded"
@@ -68,26 +83,29 @@
           [tuiAppearanceState]="openProducts ? 'hover' : null"
           (click)="submenuProducts = expanded && !submenuProducts"
         >
-          Products
+          Sản phẩm
         </button>
         <ng-template #products>
           <tui-data-list size="s">
-            <button tuiOption>Account</button>
-            <button tuiOption>Notifications</button>
-            <button tuiOption>Privacy</button>
+            <button tuiOption>Bể kính</button>
+            <button tuiOption>Đèn</button>
+            <button tuiOption>Lọc</button>
+            <button tuiOption>Layouts</button>
+            <button tuiOption>Cá</button>
           </tui-data-list>
         </ng-template>
       </tui-hosted-dropdown>
       <tui-expand [expanded]="expanded && submenuProducts">
-        <button tuiButton>Tanks</button>
+        <button tuiButton>Bể kính</button>
+        <button tuiButton>Đèn</button>
+        <button tuiButton>Lọc</button>
         <button tuiButton>Layouts</button>
-        <button tuiButton>Light</button>
-        <button tuiButton>Filter</button>
+        <button tuiButton>Cá</button>
       </tui-expand>
 
       <tui-hosted-dropdown
         [canOpen]="!expanded"
-        [content]="dropdown"
+        [content]="settings"
         [sided]="true"
         [(open)]="openSettings"
       >
@@ -99,20 +117,16 @@
           [tuiAppearanceState]="openSettings ? 'hover' : null"
           (click)="submenuSettings = expanded && !submenuSettings"
         >
-          Settings
+          Cài đặt
         </button>
-        <ng-template #dropdown>
+        <ng-template #settings>
           <tui-data-list size="s">
-            <button tuiOption>Account</button>
-            <button tuiOption>Notifications</button>
-            <button tuiOption>Privacy</button>
+            <button tuiOption>Chính sách</button>
           </tui-data-list>
         </ng-template>
       </tui-hosted-dropdown>
       <tui-expand [expanded]="expanded && submenuSettings">
-        <button tuiButton>Account</button>
-        <button tuiButton>Notifications</button>
-        <button tuiButton>Privacy</button>
+        <button tuiButton>Chính sách</button>
       </tui-expand>
 
       <footer>
@@ -121,32 +135,19 @@
           [iconLeft]="expanded ? 'tuiIconChevronLeft' : 'tuiIconChevronRight'"
           (click)="expanded = !expanded"
         >
-          {{ expanded ? 'Collapse' : 'Expand' }}
+          {{ expanded ? 'Thu nhỏ' : 'Mở rộng' }}
         </button>
       </footer>
     </aside>
 
     <main tuiNavigationMain>
-      <!--      <nav-->
-      <!--          tuiNavigationNav-->
-      <!--          [style.position]="'sticky'"-->
-      <!--      >-->
-      <!--        <a routerLink=".">-->
-      <!--          <tui-icon icon="tuiIconChevronLeft"></tui-icon>-->
-      <!--          Back-->
-      <!--        </a>-->
-      <!--        <hr />-->
-      <!--        <button-->
-      <!--            appearance="secondary"-->
-      <!--            tuiButton-->
-      <!--        >-->
-      <!--          Secondary-->
-      <!--        </button>-->
-      <!--        <button tuiButton>Primary</button>-->
-      <!--      </nav>-->
       <div style="padding-top: 1.25rem;">
         <router-outlet></router-outlet>
       </div>
     </main>
   </div>
 </tui-root>
+
+<ng-template #authTpl>
+  <router-outlet></router-outlet>
+</ng-template>

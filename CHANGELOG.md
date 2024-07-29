@@ -47,6 +47,12 @@ TuiRootModule,TuiDialogModule,TuiAlertModule was added to /src/app/app.component
 
 Content of the app was wrapped with tui-root component in /src/app/./app.component.html
 
+tui-icon
+```markdown
+https://www.figma.com/design/BB0umZol83xH6hh04RG4d8/Taiga-3.0-(Community)?t=WAHLGceYi4V0isZL-0
+node_modules/@taiga-ui/icons/esm2015/all.js
+```
+
 ```
 npm i @taiga-ui/experimental
 ```
@@ -79,3 +85,8 @@ ___
   cd libs/http-services/users-http/src/lib
   npx nx g @nx/angular:service users-http
   ```
+
+### Implement `auth` module
+```markdown
+npm i jwt-decode
+```

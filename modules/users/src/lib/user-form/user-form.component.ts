@@ -3,7 +3,7 @@ import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User, UsersHttpService } from '@super-admin/users-http';
+import { User, UsersHttpService } from '@super-admin/http-services/users-http';
 
 import {
   TuiButtonModule,

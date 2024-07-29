@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DestroyService } from '@super-admin/destroy';
-import { User, UsersHttpService } from '@super-admin/users-http';
+import { DestroyService } from '@super-admin/services/destroy';
+import { Status, User, UsersHttpService } from '@super-admin/http-services/users-http';
 import { TuiTableModule } from '@taiga-ui/addon-table';
 import { TuiLetModule } from '@taiga-ui/cdk';
 import { TuiButtonModule, TuiLinkModule } from '@taiga-ui/core';
@@ -31,10 +31,12 @@ import { takeUntil } from 'rxjs';
 })
 export class UserListComponent implements OnInit {
   public router = inject(Router);
-  readonly columns = ['name', 'email', 'phoneNumber', 'status', 'actions'];
-  users: User[] = [];
   private usersHttpService = inject(UsersHttpService);
   private destroy$ = inject(DestroyService);
+
+  readonly columns = ['name', 'username', 'email', 'phoneNumber', 'status', 'actions'];
+  readonly Status =Status;
+  users: User[] = [];
 
   ngOnInit() {
     this.getUserList();
@@ -53,11 +55,11 @@ export class UserListComponent implements OnInit {
 
   delete(user: User) {
     this.usersHttpService
-      .deleteUserById(user.id)
+      .inactiveUserById(user.id)
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (res) => {
-          this.users = res;
+          // TODO
         }
       });
   }

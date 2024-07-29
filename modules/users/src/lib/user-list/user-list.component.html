@@ -25,6 +25,12 @@
       Name
     </th>
     <th
+      *tuiHead="'username'"
+      tuiTh
+    >
+      Username
+    </th>
+    <th
         *tuiHead="'email'"
         tuiTh
     >
@@ -62,19 +68,19 @@
         *tuiCell="'name'"
         tuiTd
     >
-      {{ index + 1 }}. {{ item.name }}
+      {{ item.name }}
+    </td>
+    <td
+      *tuiCell="'username'"
+      tuiTd
+    >
+      {{ item.username }}
     </td>
     <td
         *tuiCell="'email'"
         tuiTd
     >
-      <a
-          *ngIf="item.email"
-          tuiLink
-          [href]="'mailto:' + item.email"
-      >
-        {{ item.email }}
-      </a>
+      {{ item.email }}
     </td>
     <td
         *tuiCell="'phoneNumber'"
@@ -87,13 +93,13 @@
         tuiTd
     >
       <tui-badge
-          *ngIf="item.status === 'active'"
+          *ngIf="item.status === Status.Active"
           status="success"
           value="true"
           class="mr-2 mb-2"
       ></tui-badge>
       <tui-badge
-          *ngIf="item.status === 'inactive'"
+          *ngIf="item.status === Status.Inactive"
           status="neutral"
           value="false"
           class="mr-2 mb-2"

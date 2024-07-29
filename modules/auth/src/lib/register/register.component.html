@@ -1,0 +1,26 @@
+<div class="auth">
+  <div class="auth__frame auth__frame--register">
+    <div class="auth__welcome">
+      <div class="auth__title auth__title--welcome">Already have an account?</div>
+      <div class="auth__sub-title auth__sub-title--welcome text-center">To keep connected with us please login with your personal info</div>
+      <button class="auth__button auth__button--register" type="submit" (click)="goLogin()">Sign In</button>
+    </div>
+    <div class="auth__form">
+      <h1 class="auth__title auth__title--form">Create Account</h1>
+      <div class="social">
+        <img class="social__icon" src="assets/icons/twitter.svg" alt="twitter">
+        <img class="social__icon" src="assets/icons/facebook.svg" alt="facebook">
+        <img class="social__icon" src="assets/icons/linkedin.svg" alt="linkedin">
+      </div>
+      <div class="auth__sub-title auth__sub-title--form">
+        or use your phone number for registration
+      </div>
+      <form class="form" [formGroup]="registerForm" (ngSubmit)="register()">
+        <input formControlName="name" class="form__input" type="text" autocomplete="name" placeholder="Name">
+        <input formControlName="username" class="form__input" type="text" autocomplete="username" placeholder="Phone number">
+        <input formControlName="password" class="form__input" type="password" autocomplete="password" placeholder="Password">
+        <button class="auth__button auth__button--login" type="button">Sign Up</button>
+      </form>
+    </div>
+  </div>
+</div>

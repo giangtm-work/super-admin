@@ -1,0 +1,24 @@
+<svg width="737" height="466" viewBox="0 0 737 466" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_104)">
+<rect width="737" height="466" rx="10" fill="white"/>
+<rect width="429" height="466" transform="translate(308)" fill="white"/>
+<rect width="308" height="466" fill="#06A67E"/>
+<circle cx="310.5" cy="118.5" r="28.5" fill="white" fill-opacity="0.2"/>
+<circle cx="346.5" cy="396.5" r="7.5" fill="white" fill-opacity="0.2"/>
+<circle cx="450.5" cy="147.5" r="14.5" fill="white" fill-opacity="0.2"/>
+<rect width="14.988" height="38.7886" transform="matrix(0.674398 -0.738368 0.74266 0.669668 174 370.687)" fill="white" fill-opacity="0.2"/>
+<rect width="14.988" height="38.7886" transform="matrix(0.674398 -0.738368 0.74266 0.669668 369 275.067)" fill="white" fill-opacity="0.2"/>
+<rect width="14.988" height="38.7886" transform="matrix(0.674398 -0.738368 0.74266 0.669668 407 13.0666)" fill="white" fill-opacity="0.2"/>
+<path d="M225.038 260.087L233.256 171.834L306.069 223.032L225.038 260.087Z" fill="white" fill-opacity="0.2"/>
+<path d="M429.026 448.257L433.331 402.017L471.481 428.842L429.026 448.257Z" fill="white" fill-opacity="0.2"/>
+<path d="M207.5 27.7569L232 52.1002L207.5 76.4435L183 52.1002L207.5 27.7569Z" fill="white" fill-opacity="0.2"/>
+<path d="M467.5 316L484 332.5L467.5 349L451 332.5L467.5 316Z" fill="white" fill-opacity="0.2"/>
+<rect x="819.162" y="-232.848" width="310.866" height="388.582" transform="rotate(42.5411 819.162 -232.848)" fill="white" fill-opacity="0.2"/>
+<circle cx="-7.5" cy="466.5" r="134.5" fill="white" fill-opacity="0.2"/>
+</g>
+<defs>
+<clipPath id="clip0_6_104">
+<rect width="737" height="466" rx="10" fill="white"/>
+</clipPath>
+</defs>
+</svg>

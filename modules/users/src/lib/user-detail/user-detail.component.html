@@ -47,13 +47,13 @@
             {{ user?.name }}
           </h3>
           <tui-badge
-            *ngIf="user?.status === 'active'"
+            *ngIf="user?.status === Status.Active"
             status="success"
             value="true"
             class="ml-2"
           ></tui-badge>
           <tui-badge
-            *ngIf="user?.status === 'inactive'"
+            *ngIf="user?.status === Status.Inactive"
             status="neutral"
             value="false"
             class="ml-2"

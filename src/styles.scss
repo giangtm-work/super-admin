@@ -3,3 +3,6 @@
 @tailwind utilities;
 
 /* You can add global styles to this file, and also import other style files */
+@import "../public/themes/abstracts/index";
+@import "../public/themes/base/index";
+@import "../public/themes/components/index";
