@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthHttpService, LoginReq, RegisterReq } from '@super-admin/auth-http';
-import { BehaviorSubject, tap } from 'rxjs';
+import { BehaviorSubject, catchError, EMPTY, tap } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
@@ -56,6 +56,10 @@ export class AuthService {
         tap((tokens) => {
           this.saveAccessToken(tokens.access_token);
           this.saveRefreshToken(tokens.refresh_token);
+        }),
+        catchError(() => {
+          this.removeTokens();
+          return EMPTY;
         })
       );
   }
